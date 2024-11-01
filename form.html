@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student voting form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+    --primary: #2c3e50;
+    --accent: #3498db;
+    --light: #ecf0f1;
+    --error: #e74c3c;
+    --success: #2ecc71;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  body {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    min-height: 100vh;
+  }
+  
+  .navbar {
+    background: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  .navbar-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    color: var(--primary);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .nav-links a {
+    color: var(--primary);
+    text-decoration: none;
+    margin-left: 2rem;
+    transition: color 0.3s;
+  }
+  
+  .nav-links a:hover {
+    color: var(--accent);
+  }
+  
+  .hero {
+    padding: 4rem 2rem;
+    text-align: center;
+    color: white;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: white;
+    color: var(--primary);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: transform 0.3s;
+  }
+  
+  .cta-button:hover {
+    transform: translateY(-2px);
+  }
+  
+  .features {
+    background: white;
+    padding: 4rem 2rem;
+  }
+  
+  .features-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .feature-card {
+    padding: 2rem;
+    border-radius: 10px;
+    background: var(--light);
+    text-align: center;
+  }
+  
+  .feature-card svg {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1rem;
+  }
+  
+  .feature-card h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+  
+  .logo-img{
+    height: 3rem;
+  }
+
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background-color: white;
+}
+  
+  .hamburger-menu span {
+    height: 3px;
+    width: 25px;
+    background: #2C3E50; /* Primary color */
+    margin: 4px 0;
+}
+
+  @media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+        background-color: black;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #ECF0F1; /* Secondary color */
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+    }
+}
+
+    </style>
+</head>
+<body>
+    
+<nav class="navbar">
+    <div class="navbar-content">
+      <a href="index.html" class="logo">
+        <img src="unilogo.webp" alt="" class="logo-img">
+        <h3>Student Voting Portal</h3>
+      </a>
+
+      <div class="hamburger-menu">
+         <span></span>
+         <span></span>
+         <span></span>
+      </div>
+      <!--ham-menue-->
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="login.html">Register</a>
+      </div>
+    </div>
+  </nav>
+  
+  <section class="hero">
+    <h1>Make Your Voice Heard</h1>
+    <p>Welcome to the Student Voting Portal. Participate in student government elections, campus initiatives, and help shape the future of your university.</p>
+    <a href="login.html" class="cta-button">Start Voting Now</a>
+  </section>
+
+
+
+  <section class="features">
+    <div class="features-grid">
+      <div class="feature-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <h3>Secure Voting</h3>
+        <p>Your vote is confidential and secure with our state-of-the-art voting system.</p>
+      </div>
+      
+      <div class="feature-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <h3>Real-time Results</h3>
+        <p>Watch the election unfold with live vote counting and result updates.</p>
+      </div>
+      
+      <div class="feature-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+        </svg>
+        <h3>Student Engagement</h3>
+        <p>Connect with candidates and stay informed about important campus issues.</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+            document.querySelector('.hamburger-menu').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+  </script>
+
+</body>
+</html>

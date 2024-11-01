@@ -1,0 +1,311 @@
+<html>
+    <head>
+     <base href="." />
+       <title>Student Voting Portal</title>
+            <style>
+            :root {
+            --primary: #2c3e50;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --error: #e74c3c;
+            --success: #2ecc71;
+            }
+            
+            * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            }
+            
+            body {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            }
+            
+            .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            padding: 2rem;
+            width: 100%;
+            max-width: 400px;
+            animation: slideIn 0.5s ease-out;
+            }
+            
+            @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            }
+            
+            .form-group {
+            margin-bottom: 1.5rem;
+            }
+            
+            h1 {
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 2rem;
+            }
+            
+            label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            }
+            
+            input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--light);
+            border-radius: 5px;
+            transition: all 0.3s;
+            }
+            
+            input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+            }
+            
+            button {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            }
+            
+            button:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            }
+            
+            button:active {
+            transform: translateY(0);
+            }
+            
+            .switch-form {
+            text-align: center;
+            margin-top: 1.5rem;
+            }
+            
+            .switch-form a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            }
+            
+            .switch-form a:hover {
+            color: var(--primary);
+            }
+            
+            .error {
+            color: var(--error);
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            animation: shake 0.5s ease-in-out;
+            }
+            
+            @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+            }
+            
+            .success {
+            color: var(--success);
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            }
+            
+            .success::before {
+            content: '✓';
+            font-weight: bold;
+            }
+            
+            .hide {
+            display: none;
+            }
+            
+            .logo {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            }
+            
+            .logo svg {
+            width: 64px;
+            height: 64px;
+            }
+            </style>
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    </head>
+<body>
+    
+    <div class="container" id="loginContainer">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="var(--primary)"/>
+          <path d="M15 3h6v6" stroke="var(--accent)"/>
+          <path d="M10 14L21 3" stroke="var(--accent)"/>
+        </svg>
+      </div>
+      <h1>Student Voting Portal</h1>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="loginEmail">Student Email</label>
+          <input type="email" id="loginEmail" required placeholder="your.email@university.edu">
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" required placeholder="Enter your password">
+        </div>
+        <button type="submit">Login</button>
+        <div class="switch-form">
+          <p>Don't have an account? <a href="#" id="showRegister">Register</a></p>
+        </div>
+      </form>
+    </div>
+    
+    <div class="container hide" id="registerContainer">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" stroke="var(--primary)"/>
+          <circle cx="9" cy="7" r="4" stroke="var(--primary)"/>
+          <path d="M20 8v6M17 11h6" stroke="var(--accent)"/>
+        </svg>
+      </div>
+      <h1>Student Registration</h1>
+      <form id="registerForm">
+        <div class="form-group">
+          <label for="regName">Full Name</label>
+          <input type="text" id="regName" required placeholder="Enter your full name">
+        </div>
+        <div class="form-group">
+          <label for="regEmail">Student Email</label>
+          <input type="email" id="regEmail" required placeholder="your.email@university.edu">
+        </div>
+        <div class="form-group">
+          <label for="regStudentId">Student ID</label>
+          <input type="text" id="regStudentId" required placeholder="Enter your student ID">
+        </div>
+        <div class="form-group">
+          <label for="regPassword">Password</label>
+          <input type="password" id="regPassword" required placeholder="Create a password">
+        </div>
+        <div class="form-group">
+          <label for="regConfirmPassword">Confirm Password</label>
+          <input type="password" id="regConfirmPassword" required placeholder="Confirm your password">
+        </div>
+        <button type="submit">Register</button>
+        <div class="switch-form">
+          <p>Already have an account? <a href="#" id="showLogin">Login</a></p>
+        </div>
+      </form>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const loginContainer = document.getElementById('loginContainer');
+      const registerContainer = document.getElementById('registerContainer');
+      const showRegister = document.getElementById('showRegister');
+      const showLogin = document.getElementById('showLogin');
+      const loginForm = document.getElementById('loginForm');
+      const registerForm = document.getElementById('registerForm');
+    
+      const showError = (element, message) => {
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error';
+        errorDiv.textContent = message;
+        element.parentNode.appendChild(errorDiv);
+        setTimeout(() => errorDiv.remove(), 3000);
+      };
+    
+      const showSuccess = (element, message) => {
+        const successDiv = document.createElement('div');
+        successDiv.className = 'success';
+        successDiv.textContent = message;
+        element.parentNode.appendChild(successDiv);
+        setTimeout(() => successDiv.remove(), 3000);
+      };
+    
+      showRegister.addEventListener('click', (e) => {
+        e.preventDefault();
+        loginContainer.classList.add('hide');
+        registerContainer.classList.remove('hide');
+      });
+      
+      showLogin.addEventListener('click', (e) => {
+        e.preventDefault();
+        registerContainer.classList.add('hide');
+        loginContainer.classList.remove('hide');
+      });
+    
+      loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('loginEmail');
+        const password = document.getElementById('loginPassword');
+        
+        if (!email.value.endsWith('.edu')) {
+          showError(email, 'Please use a valid university email address');
+          return;
+        }
+    
+        showSuccess(loginForm, 'Login successful! Redirecting...');
+        setTimeout(() => {
+          window.location.href = 'dashboard.html';
+        }, 2000);
+      });
+    
+      registerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('regName');
+        const email = document.getElementById('regEmail');
+        const studentId = document.getElementById('regStudentId');
+        const password = document.getElementById('regPassword');
+        const confirmPassword = document.getElementById('regConfirmPassword');
+    
+        if (!email.value.endsWith('.edu')) {
+          showError(email, 'Please use a valid university email address');
+          return;
+        }
+    
+        if (password.value !== confirmPassword.value) {
+          showError(confirmPassword, 'Passwords do not match');
+          return;
+        }
+    
+        if (password.value.length < 8) {
+          showError(password, 'Password must be at least 8 characters');
+          return;
+        }
+    
+        showSuccess(registerForm, 'Registration successful! Please login.');
+        setTimeout(() => {
+          registerContainer.classList.add('hide');
+          loginContainer.classList.remove('hide');
+        }, 2000);
+      });
+    });
+    </script>
+
+</body>
+</html>
